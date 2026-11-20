@@ -75,7 +75,7 @@ export function useIslandWindow({
           glassEnabled: isGlass(nextSettings.material),
           glassIntensity: nextSettings.glassIntensity,
           glassTint: nextSettings.islandBackgroundColor,
-          cornerRadius: nextSettings.islandCornerRadius,
+          cornerRadius: shaped.islandCornerRadius,
           collapsedCornerRadius: shaped.collapsedCornerRadius,
           cornerShape: nextSettings.islandCornerShape,
           monitorFollow: nextSettings.islandMonitor,

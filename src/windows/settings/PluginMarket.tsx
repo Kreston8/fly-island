@@ -57,7 +57,16 @@ export function PluginMarket({ settings, onSettingsChange }: PluginMarketProps) 
             type="button"
             className={`plugin-card__action${on ? " plugin-card__action--remove" : ""}`}
             aria-label={on ? t.uninstallNamed(item.name) : t.installNamed(item.name)}
-            onClick={() => on ? setNativePluginInstalled(id, false) : install(id)}
+            onClick={() => {
+              if (!on) {
+                install(id);
+                return;
+              }
+              if (id === "flyCapsule") {
+                onSettingsChange({ ...settings, islandShape: "notch" });
+              }
+              setNativePluginInstalled(id, false);
+            }}
           >
             {on ? <><span className="plugin-card__state">{t.installed}</span><span className="plugin-card__remove">{t.uninstall}</span></> : t.install}
           </button>

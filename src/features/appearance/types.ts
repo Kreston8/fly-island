@@ -80,6 +80,9 @@ export type IslandSettings = {
   islandCornerRadius: number;
   /** Corner radius (px) of the collapsed bar; tucked and detached collapsed corners follow it. */
   collapsedCornerRadius: number;
+  /** fly-capsule's collapsed and expanded radii; the notch keeps the two values above. */
+  capsuleCollapsedCornerRadius: number;
+  capsuleExpandedCornerRadius: number;
   islandCornerShape: IslandCornerShape;
   islandShape: IslandShape;
   // Optional concave corners where the island joins the screen top.

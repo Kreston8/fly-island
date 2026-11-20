@@ -149,9 +149,10 @@ export function IslandApp() {
   }));
   const scheme = useDocumentTheme(settings);
   const colors = useMemo(() => resolveSchemeColors(settings, scheme), [settings, scheme]);
+  const shaped = useMemo(() => shapedSettings(settings), [settings]);
   const stageStyle = useMemo(
-    () => getIslandStageStyle(shapedSettings(settings), colors, notice.size?.width ?? collapsedIslandWidth, expandedIslandHeight, notice.size?.height),
-    [collapsedIslandWidth, colors, expandedIslandHeight, settings, notice.size],
+    () => getIslandStageStyle(shaped, colors, notice.size?.width ?? collapsedIslandWidth, expandedIslandHeight, notice.size?.height),
+    [collapsedIslandWidth, colors, expandedIslandHeight, shaped, notice.size],
   );
 
 
@@ -223,8 +224,8 @@ export function IslandApp() {
         tuckStyle={settings.tuckStyle}
         topEdgeShoulders={settings.topEdgeShoulders}
         positionLocked={settings.positionLocked}
-        isDetached={isPositionDetached || settings.marginY > 0}
-        islandShape={settings.islandShape}
+        isDetached={isPositionDetached || shaped.marginY > 0}
+        islandShape={shaped.islandShape}
         showTitle={settings.showTitle}
         showCollapsedText={settings.showCollapsedText}
         collapsedTaskTitle={collapsedTaskTitle}

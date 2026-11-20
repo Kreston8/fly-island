@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { CAPSULE_SHAPE_ENABLED, CAPSULE_TOP_GAP, shapedSettings } from "../../src/features/appearance/islandShape.ts";
+import { CAPSULE_SHAPE_ENABLED, shapedSettings } from "../../src/features/appearance/islandShape.ts";
+import { FLY_CAPSULE_TOP_GAP } from "../../src/features/appearance/flyCapsule.ts";
 import { normalizeSettings, withAppearanceFrom } from "../../src/features/appearance/settings.ts";
 
 const capsule = (fields = {}) => ({ ...normalizeSettings(null), islandShape: "capsule", ...fields });
@@ -16,10 +17,12 @@ test("the notch draws the user's own settings", () => {
   assert.equal(shapedSettings(settings), settings);
 });
 
-test("the capsule floats below the top edge as a full pill", () => {
-  const shaped = shapedSettings(capsule({ collapsedHeight: 44, collapsedCornerRadius: 12 }));
-  assert.equal(shaped.marginY, CAPSULE_TOP_GAP);
-  assert.equal(shaped.collapsedCornerRadius, 22);
+test("the capsule uses fly-capsule's top gap and four-corner radius", () => {
+  const shaped = shapedSettings(capsule({ collapsedHeight: 44, capsuleCollapsedCornerRadius: 18 }));
+  assert.equal(shaped.marginY, FLY_CAPSULE_TOP_GAP.default);
+  assert.equal(shaped.collapsedCornerRadius, 18);
+  assert.equal(shaped.islandCornerRadius, 18);
+  assert.equal(shapedSettings(capsule({ collapsedHeight: 44, capsuleCollapsedCornerRadius: 30 })).collapsedCornerRadius, 22);
   assert.equal(shapedSettings(capsule({ marginY: 30 })).marginY, 30, "a larger saved margin is kept");
 });
 

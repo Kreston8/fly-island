@@ -29,7 +29,7 @@ export function IslandPreview({ settings }: { settings: IslandSettings }) {
       settings.opacity / 100 * (glass ? glassTintAlpha(settings.material, settings.glassIntensity) : 1),
     ),
     "--preview-glass": settings.glassIntensity / 100,
-    "--preview-radius-px": settings.islandCornerRadius,
+    "--preview-radius-px": shaped.islandCornerRadius,
     "--preview-radius-collapsed-px": shaped.collapsedCornerRadius,
     "--preview-corner-shape": cornerShapeCss(settings.islandCornerShape),
     "--preview-pulse": colors.pulseColor,

@@ -5,6 +5,7 @@ import cursorIcon from "../../../assets/brands/cursor.svg";
 import kimiCodeIcon from "../../../assets/brands/kimi-code.svg";
 import zcodeIcon from "../../../assets/brands/zcode.svg";
 import hermesIcon from "../../../assets/brands/hermes.svg";
+import flyCapsuleIcon from "../../../assets/brands/fly-capsule.svg";
 import type { NativePluginId } from "./catalog";
 import "./NativePluginIcon.css";
 
@@ -16,6 +17,7 @@ export const NATIVE_PLUGIN_ICONS: Record<NativePluginId, string> = {
   kimiCode: kimiCodeIcon,
   zcode: zcodeIcon,
   hermes: hermesIcon,
+  flyCapsule: flyCapsuleIcon,
 };
 
 /** A plugin's square app tile, rounded like the WeChat and Agent icons. */

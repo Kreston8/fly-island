@@ -9,6 +9,10 @@ import {
   MESSAGE_EXPAND_SECONDS, GAME_NOTICE_SECONDS,
 } from "./settingsLimits.ts";
 import type { IslandSettings } from "./types";
+import {
+  FLY_CAPSULE_COLLAPSED_RADIUS,
+  FLY_CAPSULE_EXPANDED_RADIUS,
+} from "./flyCapsule.ts";
 
 // First-launch settings. A saved setting that lacks a newer field keeps the
 // fallback in normalizeSettings, which for behavior switches is what older
@@ -33,6 +37,8 @@ export const DEFAULT_SETTINGS: IslandSettings = {
   islandMonitor: "primary",
   islandCornerRadius: DEFAULT_ISLAND_CORNER_RADIUS,
   collapsedCornerRadius: COLLAPSED_CORNER_RADIUS.default,
+  capsuleCollapsedCornerRadius: FLY_CAPSULE_COLLAPSED_RADIUS.default,
+  capsuleExpandedCornerRadius: FLY_CAPSULE_EXPANDED_RADIUS.default,
   islandCornerShape: "squircle",
   islandShape: "notch",
   // Optional top-edge shoulders.

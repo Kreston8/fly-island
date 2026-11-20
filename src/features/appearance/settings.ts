@@ -57,6 +57,8 @@ export const APPEARANCE_SETTING_KEYS = [
   "islandShape",
   "islandCornerRadius",
   "collapsedCornerRadius",
+  "capsuleCollapsedCornerRadius",
+  "capsuleExpandedCornerRadius",
   "islandCornerShape",
   "topEdgeShoulders",
   "topEdgeShoulderSize",

@@ -6,6 +6,7 @@ import { CollapsedIslandSection } from "../../features/appearance/CollapsedIslan
 import { CollapsedLayoutEditor } from "../../features/appearance/CollapsedLayoutEditor";
 import { ColorSettingsSection } from "../../features/appearance/ColorSettingsSection";
 import { AppearancePresetSection } from "../../features/appearance/AppearancePresetSection";
+import { FlyCapsuleSection } from "../../features/appearance/FlyCapsuleSection";
 import { IslandCornerRows } from "../../features/appearance/IslandCornerRows";
 import { IslandPreview } from "../../features/appearance/IslandPreview";
 import {
@@ -14,6 +15,7 @@ import {
 import { TopEdgeShoulderRows } from "../../features/appearance/TopEdgeShoulderRows";
 import { TuckLookRows } from "../../features/appearance/TuckLookRows";
 import type { IslandSettings } from "../../features/appearance/types";
+import { useNativePlugins } from "../../features/plugins";
 import { requestPanelPreview } from "./storage";
 import { appearancePreviewMode } from "./appearancePreview";
 
@@ -32,6 +34,7 @@ export function AppearanceSettingsPage({
 }) {
   const t = useTranslation();
   const text = t.settings.appearance;
+  const installedPlugins = useNativePlugins();
   const [expandedScalePreview, setExpandedScalePreview] = useState<number | null>(null);
   const [fontSizePreview, setFontSizePreview] = useState<number | null>(null);
   const updateAppearance = (next: IslandSettings) => {
@@ -47,6 +50,7 @@ export function AppearanceSettingsPage({
         expandedScale: expandedScalePreview ?? settings.expandedScale,
         islandFontPercent: fontSizePreview ?? settings.islandFontPercent,
       }} />
+      {installedPlugins.flyCapsule && <FlyCapsuleSection {...rows} />}
       <SettingsGroup title={text.themeTitle}>
         <SchemeRow {...rows} />
         <MaterialRows {...rows} />
@@ -62,7 +66,7 @@ export function AppearanceSettingsPage({
         <CollapsedDimensionRows settings={settings} onChange={updateAppearance} />
       </SettingsGroup>
       <SettingsGroup title={text.cornersTitle}>
-        <IslandCornerRows settings={settings} onChange={updateAppearance} />
+        <IslandCornerRows settings={settings} onChange={updateAppearance} showOpenCornerRadius={!installedPlugins.flyCapsule} />
         {settings.islandShape !== "capsule" && <TopEdgeShoulderRows settings={settings} onChange={updateAppearance} />}
       </SettingsGroup>
       <CollapsedLayoutEditor {...rows}>

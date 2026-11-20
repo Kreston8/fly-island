@@ -3,12 +3,13 @@ import type { PanelPreviewMode } from "./panelPreview";
 
 const COLLAPSED_FIELDS = [
   "islandShape", "topEdgeShoulders", "topEdgeShoulderSize", "collapsedScale", "collapsedAutoWidth", "collapsedWidth", "collapsedHeight",
-  "collapsedCornerRadius", "collapsedLayout", "collapsedPriority", "collapsedShowCover", "showCollapsedText",
+  "collapsedCornerRadius", "capsuleCollapsedCornerRadius",
+  "collapsedLayout", "collapsedPriority", "collapsedShowCover", "showCollapsedText",
   "islandBackgroundColor", "taskTextColor", "pulseColor", "opacity",
 ] as const satisfies readonly (keyof IslandSettings)[];
 const EXPANDED_FIELDS = [
   "expandedScale", "fontFamily", "islandFontPercent", "pageButtonStyle", "material", "glassIntensity", "glassBlur", "colorScheme",
-  "islandCornerRadius", "islandCornerShape",
+  "islandCornerRadius", "capsuleExpandedCornerRadius", "islandCornerShape",
   "pageTextColor",
 ] as const satisfies readonly (keyof IslandSettings)[];
 

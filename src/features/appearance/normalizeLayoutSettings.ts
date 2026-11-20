@@ -4,6 +4,11 @@ import { getColorSetting } from "../../utils/color.ts";
 import { DEFAULT_SETTINGS } from "./settingsDefaults.ts";
 import { TODO_VISIBLE_ROWS, CLIPBOARD_VISIBLE_ROWS, COLLAPSED_CORNER_RADIUS, COLLAPSED_HEIGHT, COLLAPSED_WIDTH, GLASS_BLUR, ISLAND_CORNER_RADIUS, ISLAND_FONT_PERCENT, MAX_COLLAPSED_SCALE, MIN_COLLAPSED_SCALE, TOP_EDGE_SHOULDER_SIZE, normalizeExpandedScale } from "./settingsLimits.ts";
 import { CAPSULE_SHAPE_ENABLED } from "./islandShape.ts";
+import {
+  FLY_CAPSULE_COLLAPSED_RADIUS,
+  FLY_CAPSULE_EXPANDED_RADIUS,
+  FLY_CAPSULE_TOP_GAP,
+} from "./flyCapsule.ts";
 import type { IslandSettings, LegacyIslandSettings, Material } from "./types";
 
 function normalizeSize(value: unknown, limits: { min: number; max: number; default: number; step?: number }) {
@@ -51,6 +56,8 @@ export function normalizeLayoutSettings(settings: LegacyIslandSettings | null | 
       settings?.collapsedCornerRadius ?? (normalizeSize(settings?.islandCornerRadius, ISLAND_CORNER_RADIUS) * 12) / 30,
       COLLAPSED_CORNER_RADIUS,
     ),
+    capsuleCollapsedCornerRadius: normalizeSize(settings?.capsuleCollapsedCornerRadius, FLY_CAPSULE_COLLAPSED_RADIUS),
+    capsuleExpandedCornerRadius: normalizeSize(settings?.capsuleExpandedCornerRadius, FLY_CAPSULE_EXPANDED_RADIUS),
     islandCornerShape: settings?.islandCornerShape === "round" ? "round" : DEFAULT_SETTINGS.islandCornerShape,
     islandShape: CAPSULE_SHAPE_ENABLED && settings?.islandShape === "capsule" ? "capsule" : DEFAULT_SETTINGS.islandShape,
     opacity: clamp(Number(settings?.opacity ?? DEFAULT_SETTINGS.opacity), 50, 100),
@@ -60,6 +67,7 @@ export function normalizeLayoutSettings(settings: LegacyIslandSettings | null | 
     collapsedHeight: normalizeSize(settings?.collapsedHeight, COLLAPSED_HEIGHT),
     // On the slider's range; the three sizes of 3.0.0 keep their value.
     expandedScale: normalizeExpandedScale(settings?.expandedScale ?? DEFAULT_SETTINGS.expandedScale),
+    marginY: normalizeSize(settings?.marginY, FLY_CAPSULE_TOP_GAP),
     taskTextColor,
     pageTextColor: getColorSetting(settings?.pageTextColor, ""),
     pulseColor: getColorSetting(

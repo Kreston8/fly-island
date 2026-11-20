@@ -44,6 +44,18 @@ export type SettingsAppearanceText = {
   collapsedCornerRadius: string;
   cornerShape: string;
   cornerShapes: { squircle: string; round: string };
+  /** The optional fly-capsule geometry plugin. */
+  flyCapsule: {
+    title: string;
+    shape: string;
+    shapeHint: string;
+    topGap: string;
+    topGapHint: string;
+    cornerRadius: string;
+    cornerRadiusHint: string;
+    expandedCornerRadius: string;
+    expandedCornerRadiusHint: string;
+  };
   /** The island preview at the top of the page: sample content and the two captions. */
   preview: {
     label: string;
@@ -117,6 +129,17 @@ export const zhCN: SettingsAppearanceText = {
   collapsedCornerRadius: "收起圆角",
   cornerShape: "圆角形状",
   cornerShapes: { squircle: "平滑", round: "圆弧" },
+  flyCapsule: {
+    title: "fly-capsule",
+    shape: "将岛屿形状设置为胶囊形状",
+    shapeHint: "关闭后恢复原来的顶部刘海形状",
+    topGap: "胶囊离屏幕上方的距离",
+    topGapHint: "数值越大，胶囊向下移动得越多",
+    cornerRadius: "收起时的圆角圆润度",
+    cornerRadiusHint: "滑动调整胶囊四个角的圆化半径",
+    expandedCornerRadius: "展开时的圆角圆润度",
+    expandedCornerRadiusHint: "滑动调整展开后胶囊四个角的圆化半径",
+  },
   preview: {
     label: "按当前设置画出的岛屿",
     collapsed: "折叠",
@@ -187,6 +210,17 @@ export const en: SettingsAppearanceText = {
   collapsedCornerRadius: "Collapsed corners",
   cornerShape: "Corner shape",
   cornerShapes: { squircle: "Smooth", round: "Round" },
+  flyCapsule: {
+    title: "fly-capsule",
+    shape: "Use the capsule island shape",
+    shapeHint: "Turn this off to restore the original top-notch shape",
+    topGap: "Distance from the top of the screen",
+    topGapHint: "A larger value moves the capsule farther down",
+    cornerRadius: "Collapsed corner roundness",
+    cornerRadiusHint: "Drag to round all four corners of the collapsed capsule",
+    expandedCornerRadius: "Expanded corner roundness",
+    expandedCornerRadiusHint: "Drag to round all four corners of the expanded capsule",
+  },
   preview: {
     label: "The island with the current settings",
     collapsed: "Collapsed",

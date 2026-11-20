@@ -109,7 +109,6 @@ test("quota rings default to all sources and migrate the old session switches on
 
 test("options no longer in Settings load as their defaults, whatever was saved", () => {
   const saved = {
-    marginY: 48,
     islandMonitor: "cursor",
     maxPanelHeight: 320,
     pulseBrightness: 140,

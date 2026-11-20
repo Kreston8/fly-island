@@ -9,10 +9,10 @@ const original = { mode: "expanded", page: "todo", isTucked: false, retractsAfte
 const idle = { hovering: false, interacted: false, blocked: false };
 
 test("appearance controls preview their affected shape, with no requests for unchanged or behavioral data", () => {
-  for (const patch of [{ topEdgeShoulders: true }, { topEdgeShoulderSize: 20 }, { opacity: 80 }, { pulseColor: "#123456" }, { collapsedLayout: [...DEFAULT_SETTINGS.collapsedLayout].reverse() }]) {
+  for (const patch of [{ topEdgeShoulders: true }, { topEdgeShoulderSize: 20 }, { opacity: 80 }, { pulseColor: "#123456" }, { capsuleCollapsedCornerRadius: 24 }, { collapsedLayout: [...DEFAULT_SETTINGS.collapsedLayout].reverse() }]) {
     assert.equal(appearancePreviewMode(DEFAULT_SETTINGS, { ...DEFAULT_SETTINGS, ...patch }), "collapsed");
   }
-  for (const patch of [{ islandFontPercent: 110 }, { expandedScale: 1.2 }, { pageButtonStyle: "capsule" }, { fontFamily: "pixel" }]) {
+  for (const patch of [{ islandFontPercent: 110 }, { expandedScale: 1.2 }, { pageButtonStyle: "capsule" }, { fontFamily: "pixel" }, { capsuleExpandedCornerRadius: 32 }]) {
     assert.equal(appearancePreviewMode(DEFAULT_SETTINGS, { ...DEFAULT_SETTINGS, ...patch }), "expanded");
   }
   assert.equal(appearancePreviewMode(DEFAULT_SETTINGS, { ...DEFAULT_SETTINGS, collapsedLayout: [...DEFAULT_SETTINGS.collapsedLayout] }), null);

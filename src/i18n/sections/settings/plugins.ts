@@ -29,10 +29,10 @@ export const zhCN: SettingsPluginsText = {
   permission: { network: "联网", "read-home-files": "本地文件", notifications: "消息", quota: "额度", sessions: "会话", "desktop-windows": "桌面窗口", "private-browser": "独立登录" },
   market: {
     title: "插件市场", officeTitle: "办公消息", officeHint: "钉钉、飞书、企业微信的任务栏图标闪动时在岛上提醒，看不到消息内容；点提醒回到对应软件。",
-    hint: "装上后成为小岛自己的一部分：消息类出现在消息页的标签里，Agent 类出现在 AI 会话里，可在对应设置页单独开关。",
+    hint: "装上后成为小岛自己的一部分：消息类出现在消息页，Agent 类加入 AI 会话，外观类在对应设置页提供皮肤。",
     install: "安装", uninstall: "卸载", installed: "已安装",
     installNamed: (name) => `安装 ${name}`, uninstallNamed: (name) => `卸载 ${name}`,
-    kinds: { messages: "消息", agent: "Agent" },
+    kinds: { messages: "消息", agent: "Agent", appearance: "外观" },
     items: {
       dingtalk: { name: "钉钉", description: "钉钉有新消息时岛上提醒，消息页多一个钉钉标签，点一下回到钉钉。" },
       feishu: { name: "飞书", description: "飞书有新消息时岛上提醒，消息页多一个飞书标签，点一下回到飞书。" },
@@ -41,6 +41,7 @@ export const zhCN: SettingsPluginsText = {
       kimiCode: { name: "Kimi Code", description: "显示 Kimi Code 的会话状态和套餐剩余额度。" },
       zcode: { name: "Z Code", description: "显示 Z Code 的套餐剩余额度和重置时间。" },
       hermes: { name: "Hermes", description: "显示 Nous Research Hermes Agent 的本地会话。" },
+      flyCapsule: { name: "fly-capsule", description: "只调整岛屿胶囊形态、离顶部距离和四角圆角；颜色、材质等继续使用应用自带的设置。" },
     },
   },
 };
@@ -57,10 +58,10 @@ export const en: SettingsPluginsText = {
   permission: { network: "Network", "read-home-files": "Local files", notifications: "Messages", quota: "Quota", sessions: "Sessions", "desktop-windows": "Desktop windows", "private-browser": "Private sign-in" },
   market: {
     title: "Plugin market", officeTitle: "Work messages", officeHint: "Get a heads-up when DingTalk, Feishu or WeCom flashes in the taskbar; message text is not read. Click the reminder to switch to the app.",
-    hint: "Installed plugins become part of the island: message plugins add a tab to Messages, Agent plugins join AI sessions, each with its own switch in settings.",
+    hint: "Installed plugins become part of the island: message plugins join Messages, Agent plugins join AI sessions, and appearance plugins add skins to the matching settings.",
     install: "Get", uninstall: "Remove", installed: "Installed",
     installNamed: (name) => `Install ${name}`, uninstallNamed: (name) => `Remove ${name}`,
-    kinds: { messages: "Messages", agent: "Agent" },
+    kinds: { messages: "Messages", agent: "Agent", appearance: "Appearance" },
     items: {
       dingtalk: { name: "DingTalk", description: "Get a heads-up on the island for new DingTalk messages, with a DingTalk tab in Messages." },
       feishu: { name: "Feishu", description: "Get a heads-up on the island for new Feishu messages, with a Feishu tab in Messages." },
@@ -69,6 +70,7 @@ export const en: SettingsPluginsText = {
       kimiCode: { name: "Kimi Code", description: "Show Kimi Code sessions and how much of your plan is left." },
       zcode: { name: "Z Code", description: "Show how much of your Z Code plan is left and when it resets." },
       hermes: { name: "Hermes", description: "Show local sessions of Nous Research's Hermes Agent." },
+      flyCapsule: { name: "fly-capsule", description: "Adjusts only the island's capsule shape, top gap and four-corner radius; colors and materials keep using the island's own settings." },
     },
   },
 };

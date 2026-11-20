@@ -1,27 +1,26 @@
 import type { IslandSettings } from "./types";
+import { FLY_CAPSULE_TOP_GAP } from "./flyCapsule.ts";
 
-/**
- * The capsule is built but not offered yet (用户要求 2026-11-18：胶囊功能先关闭): the settings
- * row is hidden and a saved "capsule" reads as the notch. Flip this to ship it.
- */
-export const CAPSULE_SHAPE_ENABLED = false;
-
-/**
- * Gap between the top of the work area and a capsule island, in logical px. Rust takes it as the
- * window's vertical margin (clamped there to 0..160), so tucks still slide to the screen edge.
- */
-export const CAPSULE_TOP_GAP = 8;
+/** Enables the app's native capsule geometry; the fly-capsule plugin exposes its controls. */
+export const CAPSULE_SHAPE_ENABLED = true;
 
 /**
  * The settings as the island draws them. The notch keeps the user's own values (and the same
- * object). The capsule floats a little below the top edge, a full pill while collapsed: its
- * collapsed corner radius is half the bar's height, which Rust also uses to round the hit area.
+ * object except that its unused margin is cleared). The capsule uses the fly-capsule top gap and
+ * its selected radius in both states; the last radius is capped at half the collapsed height so
+ * the native hit area and CSS corners agree.
  */
 export function shapedSettings(settings: IslandSettings): IslandSettings {
-  if (settings.islandShape !== "capsule") return settings;
+  if (settings.islandShape !== "capsule") {
+    return settings.marginY === 0 ? settings : { ...settings, marginY: 0 };
+  }
   return {
     ...settings,
-    marginY: Math.max(settings.marginY, CAPSULE_TOP_GAP),
-    collapsedCornerRadius: settings.collapsedHeight / 2,
+    marginY: Math.max(settings.marginY, FLY_CAPSULE_TOP_GAP.min),
+    islandCornerRadius: settings.capsuleExpandedCornerRadius,
+    collapsedCornerRadius: Math.min(
+      settings.capsuleCollapsedCornerRadius,
+      settings.collapsedHeight / 2,
+    ),
   };
 }
