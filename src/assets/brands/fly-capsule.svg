@@ -44,10 +44,4 @@
   <path d="M274 402C352 374 672 374 750 402C646 420 378 420 274 402Z" fill="url(#shine)"/>
   <path d="M254 612C350 638 674 638 770 612" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="6" stroke-linecap="round"/>
 
-  <rect x="454" y="486" width="116" height="44" rx="22" fill="#FFFFFF" fill-opacity="0.86"/>
-  <rect x="474" y="500" width="76" height="16" rx="8" fill="#526FE5" fill-opacity="0.34"/>
-
-  <path d="M356 268V318M668 268V318" stroke="#C8DAFF" stroke-opacity="0.72" stroke-width="12" stroke-linecap="round"/>
-  <path d="M386 310H638" stroke="#C8DAFF" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round" stroke-dasharray="18 22"/>
-  <path d="M500 710V746M524 710V746M500 710L512 698L524 710" fill="none" stroke="#D7E4FF" stroke-opacity="0.58" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
